@@ -45,8 +45,13 @@ for transaction in blockchain
     elsif blockchain[blockchain_index]["to_user"] == coin_balance[coin_balance_index]["name"]
       coin_balance[coin_balance_index]["balance"] = coin_balance[coin_balance_index]["balance"] + blockchain[blockchain_index]["amount"]
     end
+    coin_balance_index = coin_balance_index + 1
   end
   blockchain_index = blockchain_index + 1
 end
 
-puts coin_balance
+coin_balance_index = 0
+for user in coin_balance
+  puts "#{coin_balance[coin_balance_index]["name"].capitalize}'s KelloggCoin balance is #{coin_balance[coin_balance_index]["balance"]}"
+  coin_balance_index = coin_balance_index + 1
+end
